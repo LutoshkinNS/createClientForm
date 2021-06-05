@@ -1,0 +1,40 @@
+@mixin placeholder ($color)
+  font-size: 14px
+  font-weight: 400
+  color: $color
+
+@mixin links ($link, $visited, $hover, $active)
+  a
+    color: $link
+    &:visited
+      color: $visited
+    &:hover
+      color: $hover
+    &:active, &:focus
+      color: $active
+
+@mixin input($border-color, $active-color, $placeholder-color, $placeholder-focus)
+    outline: none
+    border: 1px solid $border-color
+    &::placeholder
+      @include placeholder ($placeholder-color)
+    &::-webkit-input-placeholder
+      @include placeholder ($placeholder-color)
+    &::-moz-placeholder
+      @include placeholder ($placeholder-color)
+    &:-moz-placeholder
+      @include placeholder ($placeholder-color)
+    &:-ms-input-placeholder
+      @include placeholder ($placeholder-color)
+    &:hover, &:focus
+      border: 1px solid $active-color
+      &::placeholder
+        @include placeholder ($placeholder-focus)
+      &::-webkit-input-placeholder
+        @include placeholder ($placeholder-focus)
+      &::-moz-placeholder
+        @include placeholder ($placeholder-focus)
+      &:-moz-placeholder
+        @include placeholder ($placeholder-focus)
+      &:-ms-input-placeholder
+        @include placeholder ($placeholder-focus)
